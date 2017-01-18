@@ -19,10 +19,10 @@ module.exports.Search = function(req, res, next) {
 }
 
 module.exports.Latest = function(req, res, next) {
-  searchTerm.find().exec( function(err, terms) {
+  searchTerm.find().select({"term": 1, "when": 1}).exec( function(err, terms) {
     if (err) return res.status(500).json({ "error" : "Internal Database Error" });
 
-    res.status(200).json(terms);
+    res.status(200).json();
   });
 }
 
