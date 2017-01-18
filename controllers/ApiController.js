@@ -22,7 +22,7 @@ module.exports.Latest = function(req, res, next) {
   searchTerm.find().select({"_id": 0}).exec( function(err, terms) {
     if (err) return res.status(500).json({ "error" : "Internal Database Error" });
 
-    res.status(200).json();
+    res.status(200).json(terms);
   });
 }
 
